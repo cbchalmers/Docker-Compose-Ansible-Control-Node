@@ -9,13 +9,15 @@ RUN apt-get install -y --no-install-recommends \
 software-properties-common \
 python3-pip \
 curl \
+rsync \
 && apt-get -y autoremove
 
 # Install Ansible
 RUN apt-get install -y ansible
 
 # Install supporting packages for Linux with Ansible
-RUN apt-get install -y sshpass
+RUN apt-get install -y sshpass \
+&& ansible-galaxy collection install ansible.posix
 
 # Install supporting packages for Windows with Ansible
 RUN pip3 install pywinrm \

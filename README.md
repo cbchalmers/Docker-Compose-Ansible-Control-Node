@@ -24,7 +24,7 @@ Templated Dockercompose file to create an image which can be used as an Ansible 
 
 ### Building
 
-To build this docker container you can do the following from within the cloned folder -
+To build this Docker image you can do the following from within the cloned folder -
 
 ```
 docker build --no-cache -t local/ansible-control-node:latest .
@@ -41,7 +41,7 @@ docker container run --name ansible-control-node -dit local/ansible-control-node
 Alternatively, to mount a volume into the container which contains your code add in the -v argument. Replace C:\Users\cbchalmers\Code with the local folder to mount -
 
 ```
-docker container run --name ansible-control-node -dit C:\Users\cbchalmers\Code:/mnt/code local/ansible-control-node:latest
+docker container run --name ansible-control-node -dit -v C:\Users\cbchalmers\Code:/mnt/code local/ansible-control-node:latest
 ```
 
 To access your container run the following -
